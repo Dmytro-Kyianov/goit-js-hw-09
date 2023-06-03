@@ -1,13 +1,19 @@
-// function createPromise(position, delay) {
-//   const shouldResolve = Math.random() > 0.3;
-//   if (shouldResolve) {
-//     // Fulfill
-//   } else {
-//     // Reject
-//   }
-// }
-
 import Notiflix from 'notiflix';
+
+function createPromise(position, delay) {
+  
+    return new Promise ((resolve, reject) => {
+      const shouldResolve = Math.random() > 0.3;
+      
+      setTimeout(() => {
+        if (shouldResolve) {
+          resolve({ position, delay })
+        } else {
+          reject({ position, delay })
+        }
+      }, delay)
+    })
+}
 
 const FormEl = document.querySelector('.form');
 FormEl.addEventListener('submit', onFormSubmit);
@@ -29,21 +35,6 @@ function onFormSubmit(event) {
   .catch(rejectedPromise)
   .finally(() => form.reset());
   }
-}
-
-function createPromise(position, delay) {
-  
-    return new Promise ((resolve, reject) => {
-      const shouldResolve = Math.random() > 0.3;
-      
-      setTimeout(() => {
-        if (shouldResolve) {
-          resolve({ position, delay })
-        } else {
-          reject({ position, delay })
-        }
-      }, delay)
-    })
 }
 
 function fulfilledPromise({position, delay}) {
