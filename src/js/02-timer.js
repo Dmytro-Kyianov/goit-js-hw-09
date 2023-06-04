@@ -18,11 +18,13 @@ const options = {
     if(selectedDates[0] < Date.now()) {  
         return Notiflix.Notify.failure('Please choose a date in the future',
             { position: 'center-top', });}
-    startBtnEl.disabled = false;
+      startBtnEl.disabled = false;
+      inputEl.disabled = true;
   },
 };
 
 const fp = flatpickr(inputEl, options);
+
 startBtnEl.disabled = true;
 
 class Timer {

@@ -5,6 +5,7 @@ startBtnEl.addEventListener('click', onStartBtnClick);
 stopBtnEl.addEventListener('click', onStopBtnClick);
 
 let intervalId = null;
+stopBtnEl.disabled = true;
 
 function onStartBtnClick () {
     stopBtnEl.disabled = false;
